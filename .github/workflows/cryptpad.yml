@@ -76,7 +76,7 @@ jobs:
           curl -L "https://github.com/AurionMail/cryptpad_customized_live/archive/refs/tags/${CUSTOM_TAG}.zip" -o customized.zip
           unzip -q customized.zip
           
-          EXTRACTED_CUSTOM=$(find . -maxdepth 1 -type d -name "cryptpad_customized-*" | head -n 1)
+          EXTRACTED_CUSTOM=$(find . -maxdepth 1 -type d -name "cryptpad_customized_live-*" | head -n 1)
           
           for dir in cryptpad cryptpad-office; do
             # 1. Move customize directory to cryptpad root
