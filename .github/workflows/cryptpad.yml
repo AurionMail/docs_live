@@ -25,7 +25,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           CRYPTPAD_TAG=$(gh release view --repo cryptpad/cryptpad --json tagName -q .tagName)
-          CUSTOM_TAG=$(gh release view --repo AurionMail/cryptpad_customized --json tagName -q .tagName)
+          CUSTOM_TAG=$(gh release view --repo AurionMail/cryptpad_customized_live --json tagName -q .tagName)
           
           echo "CryptPad latest release: $CRYPTPAD_TAG"
           echo "Customized latest release: $CUSTOM_TAG"
@@ -73,7 +73,7 @@ jobs:
       - name: Download, extract and overwrite customized files (Both)
         run: |
           CUSTOM_TAG="${{ steps.tags.outputs.custom_tag }}"
-          curl -L "https://github.com/AurionMail/cryptpad_customized/archive/refs/tags/${CUSTOM_TAG}.zip" -o customized.zip
+          curl -L "https://github.com/AurionMail/cryptpad_customized_live/archive/refs/tags/${CUSTOM_TAG}.zip" -o customized.zip
           unzip -q customized.zip
           
           EXTRACTED_CUSTOM=$(find . -maxdepth 1 -type d -name "cryptpad_customized-*" | head -n 1)
